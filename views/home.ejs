@@ -1,0 +1,22 @@
+<%- include("partials/header"); -%>
+
+<h2>Home</h2>
+<p> <%= homeText %> </p>
+
+<% blogPosts.forEach((blogPost)=> { %>
+    <h2> <%=blogPost.title %> </h2>
+    <% const content = blogPost.content; %>
+
+    <% if(content.length > 100) { %>
+            <p> 
+    <%=       content.substring(0,100) + "..." %> 
+               <a href="/posts/<%= blogPost.title %>">Read More</a> 
+            </p>
+    <% }else{  %>
+            <p> <%= content %> </p>
+    <% } %>
+        
+    
+<% }); %>
+
+<%- include("partials/footer"); -%>
